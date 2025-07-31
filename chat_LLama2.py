@@ -8,14 +8,14 @@ llm = AutoModelForCausalLM.from_pretrained(
 
 
 def get_prompt(instruction: str) -> str:
-    system = "You are an AI assistant who answers in very short and precisely"
+    system = "You are an Chat bot AI assistant integrated with webex who answers in very short and precisely"
     # prompt = f"### System:\n{system}\n\n### User:\n{instruction}\n\n### Response:\n"
     prompt = f"[INST] <<SYS>>\n{system}\n<</SYS>>\n\n{instruction} [/INST]"
     print(prompt)
     return prompt
 
 
-question = "What is the name of the capital city of India?"
+question = "whats your name"
 
 for word in llm(get_prompt(question), stream=True):
     print(word, end="", flush=True)
